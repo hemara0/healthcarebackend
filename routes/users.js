@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 const user = require('../models/user')
+const addedDate = Date.now();
 // get all
 router.get('/', async (req, res) => {
     try {
@@ -19,8 +20,14 @@ router.get('/:id',getUser, (req, res) => {
 // create one
 router.post('/',async (req, res) => {
     const user = User({
-        name: req.body.name,
-        email: req.body.email
+        user_name: req.body.user_name,
+        user_email: req.body.user_email,
+        user_dob: req.body.user_dob,
+        user_mobile: req.body.user_mobile,
+        user_lastlogin: addedDate,
+        user_hospitals: req.body.user_hospitals,
+        user_govtids: req.body.user_govtids,
+        user_registereddate: addedDate,
     })
     try {
         const newUser = await user.save()
@@ -32,12 +39,19 @@ router.post('/',async (req, res) => {
 })
 // update one
 router.patch('/:id',getUser, async (req, res) => {
-    if (req.body.name != null) {
-        res.user.name = req.body.name
+    if (req.body.user_mobile != null) {
+        res.user.user_mobile = req.body.user_mobile
     }
-    if (req.body.email != null) {
-        res.user.email = req.body.email
+    if (req.body.user_email != null) {
+        res.user.user_email = req.body.user_email
     }
+    if (req.body.user_dob != null) {
+        res.user.user_dob = req.body.user_dob
+    }
+    if (req.body.user_name != null) {
+        res.user.user_name = req.body.user_name
+    }
+    res.user.user_lastlogin = addedDate
     try {
         const updateUser = await res.user.save()
         res.json(updateUser)
