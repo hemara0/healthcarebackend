@@ -8,10 +8,10 @@ const userSchema = new mongoose.Schema({
         type: String
     },
     user_dob:{
-        type: Date
+        type: String
     },
     user_mobile: {
-        type: Number,
+        type: String,
     },
     user_govtids:{
         type: Array
@@ -24,6 +24,24 @@ const userSchema = new mongoose.Schema({
     },
     user_registereddate: {
         type: Date,
+    },
+    user_bloodgroup: {
+        type: String
+    },
+    user_address_street: {
+        type: String
+    },
+    user_pincode: {
+        type: String
+    },
+    user_state: {
+        type: String
+    },
+    user_city: {
+        type: String
+    },
+    user_country: {
+        type: String
     },
 
 } , { collection: 'users_basic_data' })
