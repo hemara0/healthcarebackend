@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     user_hospitals: {
         type: Array
     },
-    user_lastlogin:{
+    user_lastlogin:{ 
         type: Date
     },
     user_registereddate: {
