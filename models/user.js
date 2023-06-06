@@ -13,12 +13,49 @@ const userSchema = new mongoose.Schema({
     user_mobile: {
         type: String,
     },
-    user_govtids:{
-        type: Array
-    },
-    user_hospitals: {
-        type: Array
-    },
+    user_govtids:[{
+        idType: {
+            type: String,
+          },
+        idNumber: {
+            type: String,
+     
+          }}]
+    ,
+    user_hospitals: [
+        {
+        hospitalName: {
+            type: String,
+         
+        },
+        visits: [
+            {
+                visitDescription: {
+                    type: String,
+            
+                },
+                visitDate: {
+                    type: Date,
+                    
+                },      
+            }
+
+          ]
+        }
+      ],
+    user_orders: { appointment:[
+        {
+            hospitalId: {type: String},
+            doctorId: {type: String},
+            bookingDate: {type: String},
+            visitDate: {type: String},
+            visitTime: {type: String},
+            reasonOfVisit: {type: String},
+            status:{type: String}
+        }
+    ]}
+    ,
+  
     user_lastlogin:{ 
         type: Date
     },

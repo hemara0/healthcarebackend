@@ -28,12 +28,13 @@ router.post('/',async (req, res) => {
         user_hospitals: req.body.user_hospitals,
         user_govtids: req.body.user_govtids,
         user_registereddate: addedDate,
-        user_bloodgroup: req.user_bloodgroup,
-        user_address_street:req.user_address_street,
-        user_pincode: req.user_pincode,
-        user_state : req.user_state,
-        user_city: req.user_city,
-        user_country: req.user_country
+        user_bloodgroup: req.body.user_bloodgroup,
+        user_address_street:req.body.user_address_street,
+        user_pincode: req.body.user_pincode,
+        user_state : req.body.user_state,
+        user_city: req.body.user_city,
+        user_country: req.body.user_country,
+        user_orders: req.body.user_orders
 
     })
     try {
@@ -75,6 +76,15 @@ router.patch('/:id',getUser, async (req, res) => {
     }
     if (req.body.user_country != null&& req.body.user_country != '') {
         res.user.user_country = req.body.user_country
+    }
+    if (req.body.user_hospitals != null) {
+        res.user.user_hospitals = req.body.user_hospitals
+    }
+    if (req.body.user_govtids != null) {
+        res.user.user_govtids = req.body.user_govtids
+    }
+    if (req.body.user_orders != null) {
+        res.user.user_orders = req.body.user_orders
     }
     res.user.user_lastlogin = addedDate
     try {
