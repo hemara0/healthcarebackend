@@ -43,7 +43,8 @@ const userSchema = new mongoose.Schema({
           ]
         }
       ],
-    user_orders: { appointment:[
+    user_orders: { 
+        appointment:[
         {
             hospitalId: {type: String},
             doctorId: {type: String},
@@ -53,8 +54,23 @@ const userSchema = new mongoose.Schema({
             reasonOfVisit: {type: String},
             status:{type: String}
         }
-    ]}
-    ,
+    ],
+    medicalStore:[
+        {
+            drug:[
+                {
+                    drugID: {type: String},
+                    drugCount: {type: String},
+                }
+            ],
+            subtotal: {type: String},
+            tax: {type: String},
+            delivery: {type: String},
+            total: {type: String},
+            orderDate: {type: String},
+        }
+    ]    
+    },
   
     user_lastlogin:{ 
         type: Date
