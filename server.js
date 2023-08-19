@@ -18,4 +18,7 @@ app.use('/users', usersRouter)
 const organizationsRouter = require('./routes/organizations')
 app.use('/organizations', organizationsRouter)
 
+const pharmacydrugsRouter = require('./routes/pharmacydrugs')
+app.use('/pharmacydrugs', pharmacydrugsRouter)
+
 app.listen(3000, ()=> console.log("server started"))
