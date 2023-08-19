@@ -88,6 +88,7 @@ router.patch('/:id',getUser, async (req, res) => {
     }
     res.user.user_lastlogin = addedDate
     try {
+        console.log(req.body.user_orders)
         const updateUser = await res.user.save()
         res.json(updateUser)
     } catch (err){

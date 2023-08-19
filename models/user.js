@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
     ],
     medicalStore:[
         {
-            drug:[
+            drugs:[
                 {
                     drugID: {type: String},
                     drugCount: {type: String},
@@ -67,7 +67,7 @@ const userSchema = new mongoose.Schema({
             tax: {type: String},
             delivery: {type: String},
             total: {type: String},
-            orderDate: {type: String},
+            OrderDate: {type: String},
         }
     ]    
     },
