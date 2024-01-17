@@ -26,7 +26,7 @@ async function getUserLogin(req, res, next){
         const user_name = req.originalUrl.replace('/login/username=', '');
         console.log(user_name)
         user = await userLogin.find({"username": user_name})
-        if (user == null){
+        if (user == null || user.length==0){
             return res.status(404).json({ message: 'Cannot find user'})
         }
     }catch (err) {
