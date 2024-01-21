@@ -24,4 +24,7 @@ app.use('/pharmacydrugs', pharmacydrugsRouter)
 const loginRouter = require('./routes/login')
 app.use('/login', loginRouter)
 
+const providerloginRouter = require('./routes/providerlogin')
+app.use('/providerlogin', providerloginRouter)
+
 app.listen(3000, ()=> console.log("server started"))
